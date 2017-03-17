@@ -32,77 +32,75 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 	<?php wp_head(); ?>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
 </head>
 
 <body <?php body_class(); ?>>
 
-<div id="wrapper" class="hfeed site">
+	<div id="wrapper" class="hfeed site">
 
-	<div class="visuallyhidden skip-link"><a href="#primary" title="<?php esc_attr_e( 'Skip to main content', 'quark' ); ?>"><?php esc_html_e( 'Skip to main content', 'quark' ); ?></a></div>
+		<div class="visuallyhidden skip-link"><a href="#primary" title="<?php esc_attr_e( 'Skip to main content', 'quark' ); ?>"><?php esc_html_e( 'Skip to main content', 'quark' ); ?></a></div>
 
-	<div id="headercontainer">
+		<div id="headercontainer">
 
-		<header id="masthead" class="site-header row" role="banner">
-			<div class="col grid_5_of_12 site-title">
-				<h1>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home">
-						<?php 
-						$headerImg = get_header_image();
-						if( !empty( $headerImg ) ) { ?>
-							<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
-						<?php } 
-						else {
-							echo get_bloginfo( 'name' );
-						} ?>
-					</a>
-				</h1>
-			</div> <!-- /.col.grid_5_of_12 -->
-
-			<div class="col grid_7_of_12">
-				<div class="social-media-icons">
-					<?php echo quark_get_social_media(); ?>
+			<header id="masthead" class="site-header" role="banner">
+				<div class="row">
+					<div class="site-title col grid_12_of_12">
+						<h1>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home">
+								<?php 
+								$headerImg = get_header_image();
+								if( !empty( $headerImg ) ) { ?>
+								<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+								<?php } 
+								else {
+									echo get_bloginfo( 'name' );
+								} ?>
+							</a>
+						</h1>
+					</div> <!-- .site-title -->
 				</div>
-				<nav id="site-navigation" class="main-navigation" role="navigation">
-					<h3 class="menu-toggle assistive-text"><?php esc_html_e( 'Menu', 'quark' ); ?></h3>
-					<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'quark' ); ?>"><?php esc_html_e( 'Skip to content', 'quark' ); ?></a></div>
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
-				</nav> <!-- /.site-navigation.main-navigation -->
-			</div> <!-- /.col.grid_7_of_12 -->
-		</header> <!-- /#masthead.site-header.row -->
 
-	</div> <!-- /#headercontainer -->
-	<div id="bannercontainer">
-		<div class="banner row">
-			<?php if ( is_front_page() ) {
-				// Count how many banner sidebars are active so we can work out how many containers we need
-				$bannerSidebars = 0;
-				for ( $x=1; $x<=2; $x++ ) {
-					if ( is_active_sidebar( 'frontpage-banner' . $x ) ) {
-						$bannerSidebars++;
-					}
-				}
+				<div class="row">
+					<nav id="site-navigation" class="main-navigation col grid_12_of_12" role="navigation">
+						<h3 class="menu-toggle assistive-text"><?php esc_html_e( 'Menu', 'quark' ); ?></h3>
+						<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'quark' ); ?>"><?php esc_html_e( 'Skip to content', 'quark' ); ?></a></div>
+						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+					</nav> <!-- /.site-navigation.main-navigation -->
+				</div>
 
-				// If there's one or more one active sidebars, create a row and add them
-				if ( $bannerSidebars > 0 ) { ?>
-					<?php
-					// Work out the container class name based on the number of active banner sidebars
-					$containerClass = "grid_" . 12 / $bannerSidebars . "_of_12";
+				<!-- Place this in the footer callout -->
+				<!-- <div class="social-media-icons"> -->
+				<?php // echo quark_get_social_media(); ?>
+				<!-- </div> -->
+			</header> <!-- /#masthead.site-header.row -->
 
-					// Display the active banner sidebars
-					for ( $x=1; $x<=2; $x++ ) {
-						if ( is_active_sidebar( 'frontpage-banner'. $x ) ) { ?>
-							<div class="col <?php echo $containerClass?>">
-								<div class="widget-area" role="complementary">
-									<?php dynamic_sidebar( 'frontpage-banner'. $x ); ?>
-								</div> <!-- /.widget-area -->
-							</div> <!-- /.col.<?php echo $containerClass?> -->
-						<?php }
-					} ?>
+		</div> <!-- /#headercontainer -->
 
-				<?php }
-			} ?>
-		</div> <!-- /.banner.row -->
-	</div> <!-- /#bannercontainer -->
+		<div id="bannercontainer" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>);">
+			<div class="banner row">
+				<h1 class="banner__title">
+					<?php 
+						if (get_field('header_title')): 
+							echo the_field('header_title');	
+						else: 
+							echo the_title();
+						endif
+					?>
+				</h1>
+				
+				<?php if (get_field('header_tagline')): ?>
+				<p class="banner__tagline">
+					<?php echo the_field('header_tagline') ?> 
 
-	<div id="maincontentcontainer">
-		<?php	do_action( 'quark_before_woocommerce' ); ?>
+					<?php if ( is_front_page() ) : ?>
+						<a class="banner__contact" href="#">Contact Us Today</a>
+					<?php endif; ?>
+				</p>
+				<?php endif ?>
+			</div> <!-- /.banner.row -->
+		</div> <!-- /#bannercontainer -->
+
+		<div id="maincontentcontainer">
+			<?php	do_action( 'quark_before_woocommerce' ); ?>

@@ -1,0 +1,466 @@
+$font-family-sans-serif: 'Lato', sans-serif;
+$navy-blue: #061832;
+$neon-green: #6abd45;
+$dark-grey: #3c3c3b;
+$teal-green: #39424b;
+
+$color__primary: $navy-blue;
+$color__secondary: $dark-grey;
+$color__accent: $neon-green;
+$color__callout: $teal-green;
+
+
+@mixin image-box {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;;
+  background-position: center !important;;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+%list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family-sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-sans-serif;
+}
+
+ul {
+  list-style-type: initial;
+}
+
+.site-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// Utility Classes
+.text {
+  &--center {
+    text-align: center;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+}
+
+// Navigation
+.main-navigation {
+  float: none;
+  clear: none;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  ul {
+    @include clearfix;
+  }
+
+  li {
+    margin: 0 1.25rem 0 0;
+
+    a {
+      font-size: 20px;
+      font-weight: 300;
+      color: black;
+      font-family: $font-family-sans-serif;
+    }
+  }
+
+  .current_page_item {
+    & > a {
+      color: black;
+      font-weight: 700;
+    }
+  }
+}
+
+// .page-template-default {}
+// Banner Styles
+#bannercontainer {
+  @include image-box;
+
+  .banner {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    .page-template-front-page & {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+
+      .banner__title {
+        font-size: 30px;
+        padding: 1rem;
+        background-color: $color__primary;
+      }
+    }
+
+    &__title,
+    &__tagline {
+      color: white;
+      margin: 0;
+    }
+
+    &__title {
+      font-size: 28px;
+      font-weight: 300;
+    }
+
+    &__tagline {
+      background-color: $color__accent;
+      font-size: 16px;
+      padding: 1rem;
+    }
+
+    &__contact {
+      display: block;
+      margin: 1rem auto 0;
+      padding: 6px 12px;
+      font-size: 15px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      width: auto;
+    }
+
+    @media screen and (min-width: 901px) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+
+      .page-template-front-page & {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+
+        .banner__title {
+          font-size: 40px;
+          padding: 2rem 3rem;
+        }
+      }
+      
+      &__title,
+      &__tagline {
+        display: inline-block;
+      }
+      
+
+      &__tagline {
+        font-size: 20px;
+        font-weight: 700;
+        padding: 1rem 3rem;
+      }
+
+      &__contact {
+        margin: 0 0 0 20px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+// Services Section
+.services {
+  @include clearfix;
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+.service {
+  display: inline-block;
+  padding: 1rem;
+  width: 50%;
+  float: left;
+
+  &__title {
+    font-size: 14px; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    color: #4d4d4d;
+  }
+
+  &__icon {
+    position: relative;
+    width: 100%;
+    height: 75px;
+  }
+
+  &__image {
+    position: absolute;
+    max-width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media screen and (min-width: 601px) {
+    width: 33.333333%
+  }
+
+  @media screen and (min-width: 901px) {
+    padding: 3rem;
+    width: 20%;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+
+// Section Styles
+.section {
+  position: relative;
+  font-weight: 300;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  &--text {
+    .section__content {
+      column-count: 2;
+      column-gap: 30px;
+      font-size: 20px;
+    }
+  }
+
+  &--image,
+  &--primary,
+  &--secondary,
+  &--callout {
+
+    .section__content,
+    .section__title {
+      color: white;      
+    }
+  }
+
+  &--image {
+    @include image-box;
+    background-color: transparent;
+  }
+
+  &--primary {
+    background-color: $color__primary;
+  }
+
+  &--secondary {
+    background-color: $color__secondary;  
+  }
+
+  &--callout {
+    background-color: $color__callout;  
+  }
+  
+
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    // background-color: #061832;
+    background-color: rgba(6,24,50, 0.8); // change to rgb and set to 20% opacity
+    z-index: 10;
+  }
+
+  &__content {
+    position: relative;
+    padding: 2rem;
+    z-index: 20;
+    margin-bottom: 0;
+    font-size: 16px;
+
+    p {
+      font-size: inherit;
+    }
+  }
+
+  &__title {
+    font-weight: 300;
+    margin-bottom: 1em;
+    font-size: 30px;
+  }
+
+  &--full {
+    .section__overlay {
+      background-color: #3C3C3B;
+      background-color: rgba(60,60,59, 0.6); // 60% opacity
+    }
+  }
+
+  @media screen and (min-width: 901px) {
+    &__content {
+      padding: 2rem 3rem;
+    }
+
+    .page-template-default &.section--half {
+      .section__content {
+        padding: 6rem 3rem;
+      }
+    }
+  }
+}
+
+// Widgets and Contact Form
+.widget {
+  @extend %list-reset;
+}
+
+.form-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+
+  .ajax-loader {
+    float: left;
+  }
+
+  .form-submit {
+    float: right;
+    padding: 4px;
+  }
+}
+
+.form-row {
+  @include clearfix;
+  margin-left: -4px;
+  margin-right: -4px;
+}
+
+.form-section {
+  float: left;
+  width: 100%;
+  padding: 4px;
+
+  &--half {
+    width: 50%;
+  }
+}
+
+textarea.form-input,
+input.form-input {
+  display: block;
+  width: 100%;
+  border-radius: 0;
+  font-size: 18px;
+  padding: 13px;
+  max-height: 150px;
+}
+
+// Button Reset
+.menu-toggle, 
+.btn, 
+input[type="submit"] {
+  padding: 15px 45px;
+  font-size: 15px;
+  border-radius: 0;
+  background-color: white;
+  display: inline-block;
+}
+
+// Footer Styles
+#footercontainer {
+  background-color: white;
+}
+
+.footer-logo {
+  max-width: 180px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.site-footer {
+  font-weight: 300;
+  color: black;
+  padding-top: 0;
+
+  .widget-title {
+    font-weight: 300;
+    color: black;
+  }
+
+  .widget_nav_menu {
+    a {
+      text-decoration: none;
+      font-weight: 300;
+      color: black;
+    }
+  }
+}
+
+// Social Media Links in Callout
+.social {
+  display: table;
+  color: white;
+
+  .social__title {
+    display: table-cell;
+    font-size: 20px;
+    color: white;
+    vertical-align: middle;
+    padding-right: 30px;
+    font-weight: 300;
+  }
+
+  .social__links {
+    @extend %list-reset;
+    display: table-cell;
+    vertical-align: middle;
+
+    li {
+      display: inline-block;
+
+      a {
+        display: block;
+        padding: 10px;
+
+        .fa {
+          color: white;
+          font-size: 48px;
+        }
+      }
+    }
+  }
+}
+
+// Mailchimp Form
+.mailchimp {
+  display: table;
+
+  &__submit,
+  &__email {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  &__submit {
+    white-space: nowrap;
+  }
+
+  &__email {
+    width: 100%;
+    padding-right: 10px;
+
+    .form-input {
+      background-color: transparent;
+      width: 100%;
+      color: white;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      font-weight: 300;
+      padding-left: 0;
+    }
+  }
+}
