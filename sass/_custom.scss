@@ -230,10 +230,17 @@ ul {
   margin-bottom: 1rem;
 
   &--text {
-    .section__content {
-      column-count: 2;
-      column-gap: 30px;
-      font-size: 20px;
+    @media (max-width: 799px) {
+      .section__content {
+        padding: 15px;
+      }
+    }
+    @media (min-width: 800px) {
+      .section__content {
+        column-count: 2;
+        column-gap: 30px;
+        font-size: 20px;
+      }
     }
   }
 
@@ -428,7 +435,14 @@ input[type="submit"] {
 
         .fa {
           color: white;
-          font-size: 48px;
+          font-size: 24px;
+          @media (min-width: 800px) {
+            font-size: 36px;
+          }
+
+          @media (min-width: 1100px) {
+            font-size: 48px;
+          }
         }
       }
     }
@@ -462,5 +476,63 @@ input[type="submit"] {
       font-weight: 300;
       padding-left: 0;
     }
+  }
+}
+
+// Nav-menu
+/*  Adjust the menu at less than 520px */
+@media only screen and (max-width: 520px) {
+  .site-title h1 {
+    text-align: center;
+  }
+  .main-small-navigation .nav-menu,
+  .main-small-navigation .nav-menu ul,
+  .nav-menu,
+  .nav-menu ul {
+    list-style: none;
+
+    li {
+      a {
+        font-weight: 400;
+        display: block;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      &.current-menu-item {
+        a {
+          font-weight: 700;
+        }    
+      }
+    }
+    
+  }
+  .main-small-navigation,
+  .main-navigation li {
+    width: 100%;
+  }
+  .main-small-navigation {
+    text-align: center;
+  }
+  .main-small-navigation ul li,
+  .main-navigation ul li {
+    background-color: #fff;
+    margin: 0;
+    text-align: center;
+  }
+  .main-navigation ul ul, 
+  .main-navigation ul ul li ul {
+    position: relative;
+  }
+  .main-navigation ul ul li ul {
+    left: 0;
+  }
+  .main-navigation ul ul a {
+    color: #fff; /* Nav bar dropdown link color */
+    background-color: #333;  /* Nav bar dropdown background color */
+    width: 100%; /* Nav bar dropdown width */
+  }
+  .social-media-icons {
+    text-align: center;
   }
 }
