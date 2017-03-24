@@ -2523,7 +2523,7 @@ h1.page-title {
     page-break-after: avoid;
   }
 }
-.widget, .social .social__links {
+.widget, .header-contact-widget-wrapper .header-contact-widget .menu, .social .social__links {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -2823,6 +2823,46 @@ input[type="submit"] {
   border-radius: 0;
   background-color: white;
   display: inline-block;
+}
+
+.site-header {
+  position: relative;
+}
+
+.header-contact-widget-wrapper {
+  display: none;
+}
+@media (min-width: 520px) {
+  .header-contact-widget-wrapper {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 300;
+  }
+  .header-contact-widget-wrapper .header-contact-widget .menu {
+    text-align: center;
+  }
+  .header-contact-widget-wrapper .header-contact-widget .menu li {
+    list-style-type: none;
+    display: inline-block;
+    font-size: 20px;
+  }
+  .header-contact-widget-wrapper .header-contact-widget .menu li:not(:last-child) a:after {
+    content: '|';
+    padding-left: 10px;
+  }
+  .header-contact-widget-wrapper .header-contact-widget .menu li a {
+    text-decoration: none;
+    padding: 5px;
+    display: block;
+  }
+  .header-contact-widget-wrapper .header-contact-widget .contact-number {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 5px;
+  }
 }
 
 #footercontainer {

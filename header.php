@@ -60,6 +60,11 @@
 							</a>
 						</h1>
 					</div> <!-- .site-title -->
+
+					<div class="header-contact-widget-wrapper">	
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Header Contact Widget") ) : ?>
+						<?php endif;?>
+					</div>
 				</div>
 
 				<div class="row">
