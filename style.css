@@ -2114,19 +2114,45 @@ h1.page-title {
   color: #2997ab;
 }
 
-.woocommerce a.button,
+.woocommerce a.button, .woocommerce a.menu-toggle,
+.woocommerce a.btn,
 .woocommerce button.button,
+.woocommerce button.menu-toggle,
+.woocommerce button.btn,
 .woocommerce input.button,
+.woocommerce input.menu-toggle,
+.woocommerce input.btn,
+.woocommerce input[type="submit"],
 .woocommerce #content input.button.alt,
+.woocommerce #content input.alt.menu-toggle,
+.woocommerce #content input.alt.btn,
+.woocommerce #content input.alt[type="submit"],
 .woocommerce #respond input#submit.alt,
 .woocommerce a.button.alt,
+.woocommerce a.alt.menu-toggle,
+.woocommerce a.alt.btn,
 .woocommerce button.button.alt,
+.woocommerce button.alt.menu-toggle,
+.woocommerce button.alt.btn,
 .woocommerce input.button.alt,
+.woocommerce input.alt.menu-toggle,
+.woocommerce input.alt.btn,
+.woocommerce input.alt[type="submit"],
 .woocommerce-page #content input.button.alt,
+.woocommerce-page #content input.alt.menu-toggle,
+.woocommerce-page #content input.alt.btn,
+.woocommerce-page #content input.alt[type="submit"],
 .woocommerce-page #respond input#submit.alt,
 .woocommerce-page a.button.alt,
+.woocommerce-page a.alt.menu-toggle,
+.woocommerce-page a.alt.btn,
 .woocommerce-page button.button.alt,
-.woocommerce-page input.button.alt {
+.woocommerce-page button.alt.menu-toggle,
+.woocommerce-page button.alt.btn,
+.woocommerce-page input.button.alt,
+.woocommerce-page input.alt.menu-toggle,
+.woocommerce-page input.alt.btn,
+.woocommerce-page input.alt[type="submit"] {
   background-color: #2997ab;
   *background-color: #2997ab;
   border: 1px solid #237e8f;
@@ -2138,19 +2164,45 @@ h1.page-title {
   padding: 0.5em 0.75em;
 }
 
-.woocommerce a.button:hover,
+.woocommerce a.button:hover, .woocommerce a.menu-toggle:hover,
+.woocommerce a.btn:hover,
 .woocommerce button.button:hover,
+.woocommerce button.menu-toggle:hover,
+.woocommerce button.btn:hover,
 .woocommerce input.button:hover,
+.woocommerce input.menu-toggle:hover,
+.woocommerce input.btn:hover,
+.woocommerce input[type="submit"]:hover,
 .woocommerce #content input.button.alt:hover,
+.woocommerce #content input.alt.menu-toggle:hover,
+.woocommerce #content input.alt.btn:hover,
+.woocommerce #content input.alt[type="submit"]:hover,
 .woocommerce #respond input#submit.alt:hover,
 .woocommerce a.button.alt:hover,
+.woocommerce a.alt.menu-toggle:hover,
+.woocommerce a.alt.btn:hover,
 .woocommerce button.button.alt:hover,
+.woocommerce button.alt.menu-toggle:hover,
+.woocommerce button.alt.btn:hover,
 .woocommerce input.button.alt:hover,
+.woocommerce input.alt.menu-toggle:hover,
+.woocommerce input.alt.btn:hover,
+.woocommerce input.alt[type="submit"]:hover,
 .woocommerce-page #content input.button.alt:hover,
+.woocommerce-page #content input.alt.menu-toggle:hover,
+.woocommerce-page #content input.alt.btn:hover,
+.woocommerce-page #content input.alt[type="submit"]:hover,
 .woocommerce-page #respond input#submit.alt:hover,
 .woocommerce-page a.button.alt:hover,
+.woocommerce-page a.alt.menu-toggle:hover,
+.woocommerce-page a.alt.btn:hover,
 .woocommerce-page button.button.alt:hover,
-.woocommerce-page input.button.alt:hover {
+.woocommerce-page button.alt.menu-toggle:hover,
+.woocommerce-page button.alt.btn:hover,
+.woocommerce-page input.button.alt:hover,
+.woocommerce-page input.alt.menu-toggle:hover,
+.woocommerce-page input.alt.btn:hover,
+.woocommerce-page input.alt[type="submit"]:hover {
   color: #fff;
   background-color: #208294;
   *background-color: #208294;
@@ -2539,6 +2591,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Lato", sans-serif;
 }
 
+a:visited {
+  color: inherit;
+}
+
 ul {
   list-style-type: initial;
 }
@@ -2546,6 +2602,11 @@ ul {
 .site-content {
   padding-top: 0;
   padding-bottom: 0;
+  max-width: 1400px;
+}
+
+.site-header {
+  max-width: 1400px;
 }
 
 .text--center {
@@ -2581,6 +2642,17 @@ ul {
   font-weight: 700;
 }
 
+.quote {
+  text-align: center;
+}
+.quote .quote__content {
+  font-style: italic;
+  font-size: 25px;
+}
+.quote .quote__author {
+  font-size: 20px;
+}
+
 #bannercontainer {
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -2597,7 +2669,7 @@ ul {
 .page-template-front-page #bannercontainer .banner .banner__title {
   font-size: 30px;
   padding: 1rem;
-  background-color: #061832;
+  background-color: #232830;
 }
 #bannercontainer .banner__title, #bannercontainer .banner__tagline {
   color: white;
@@ -2608,7 +2680,7 @@ ul {
   font-weight: 300;
 }
 #bannercontainer .banner__tagline {
-  background-color: #6abd45;
+  background-color: #e6251e;
   font-size: 16px;
   padding: 1rem;
 }
@@ -2700,11 +2772,68 @@ ul {
   }
 }
 
+.button, .menu-toggle,
+.btn,
+input[type="submit"] {
+  background-color: #e6251e;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 18px 36px;
+  font-size: 18px;
+  display: inline-block;
+}
+
 .section {
   position: relative;
   font-weight: 300;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+.section__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(6, 24, 50, 0.8);
+  z-index: 10;
+}
+.section__content {
+  position: relative;
+  padding: 2rem;
+  z-index: 20;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+.section__content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.section__content p {
+  font-size: inherit;
+}
+.section__title {
+  font-weight: 700;
+  margin-bottom: 1em;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.section__text {
+  float: left;
+  width: 50%;
+}
+.section__images {
+  float: right;
+  width: 50%;
+}
+.section__image {
+  padding: 15px;
+  text-align: center;
+}
+.section__image img {
+  display: inline-block;
 }
 @media (max-width: 799px) {
   .section--text .section__content {
@@ -2732,39 +2861,39 @@ ul {
   background-color: transparent;
 }
 .section--primary {
-  background-color: #061832;
+  background-color: #232830;
 }
 .section--secondary {
-  background-color: #3c3c3b;
+  background-color: #666a6f;
 }
 .section--callout {
   background-color: #39424b;
 }
-.section__overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(6, 24, 50, 0.8);
-  z-index: 10;
-}
-.section__content {
-  position: relative;
-  padding: 2rem;
-  z-index: 20;
-  margin-bottom: 0;
-  font-size: 16px;
-}
-.section__content p {
-  font-size: inherit;
-}
-.section__title {
-  font-weight: 300;
-  margin-bottom: 1em;
-  font-size: 30px;
+.section--full .section__title {
+  font-size: 35px;
 }
 .section--full .section__overlay {
   background-color: #3C3C3B;
   background-color: rgba(60, 60, 59, 0.6);
+}
+.section--large {
+  font-size: 25px;
+  text-align: center;
+}
+.section--large .section__images {
+  width: 100%;
+}
+.section--large .section__images:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.section--large .section__images img {
+  width: 50%;
+  float: right;
+}
+.section--large .section__description {
+  font-size: 25px;
 }
 @media screen and (min-width: 901px) {
   .section__content {
@@ -2807,24 +2936,19 @@ ul {
   width: 50%;
 }
 
+iframe {
+  background-color: black;
+}
+
 textarea.form-input,
-input.form-input {
+input.form-input,
+iframe .sharpspring_form input[type=text] {
   display: block;
   width: 100%;
   border-radius: 0;
   font-size: 18px;
   padding: 13px;
   max-height: 150px;
-}
-
-.menu-toggle,
-.btn,
-input[type="submit"] {
-  padding: 15px 45px;
-  font-size: 15px;
-  border-radius: 0;
-  background-color: white;
-  display: inline-block;
 }
 
 .site-header {
@@ -2867,8 +2991,10 @@ input[type="submit"] {
   }
 }
 
+body,
+#headercontainer,
 #footercontainer {
-  background-color: white;
+  background-color: white !important;
 }
 
 .footer-logo {
@@ -3019,6 +3145,9 @@ input[type="submit"] {
   .social-media-icons {
     text-align: center;
   }
+}
+.woocommerce-breadcrumb {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

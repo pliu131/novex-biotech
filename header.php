@@ -32,8 +32,6 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 	<?php wp_head(); ?>
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-
 </head>
 
 <body <?php body_class(); ?>>
@@ -83,7 +81,7 @@
 
 		</div> <!-- /#headercontainer -->
 
-		<div id="bannercontainer" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>);">
+		<div id="bannercontainer" style="display: none; background-image: url(<?php echo the_post_thumbnail_url(); ?>);">
 			<div class="banner row">
 				<h1 class="banner__title">
 					<?php 

@@ -1054,7 +1054,7 @@ if ( ! function_exists( 'quark_woocommerce_before_main_content' ) ) {
 			echo '<div class="col grid_12_of_12">';
 		}
 		else {
-			echo '<div class="col grid_8_of_12">';
+			echo '<div class="col grid_12_of_12">';
 		}
 	}
 	add_action( 'woocommerce_before_main_content', 'quark_woocommerce_before_main_content', 10 );
@@ -1125,173 +1125,26 @@ if ( ! function_exists( 'quark_set_number_woocommerce_products' ) ) {
 }
 
 // Create Widget Area
-if ( function_exists('register_sidebar') )
+if ( function_exists('register_sidebar') ) {
   register_sidebar(array(
     'name' => 'Header Contact Widget',
     'before_widget' => '<div class = "header-contact-widget">',
     'after_widget' => '</div>',
     'before_title' => '<h3>',
     'after_title' => '</h3>',
-  )
-);
+  ));
 
-// Add Custom Fields
-if(function_exists("register_field_group"))
-{
-	register_field_group(array (
-		'id' => 'acf_page-custom-fields',
-		'title' => 'Page Custom Fields',
-		'fields' => array (
-			array (
-				'key' => 'field_58cb78b505526',
-				'label' => 'Header Title',
-				'name' => 'header_title',
-				'type' => 'text',
-				'instructions' => 'Fill this in to have a different title show up in the header.',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-			array (
-				'key' => 'field_58cb790205527',
-				'label' => 'Header Tagline',
-				'name' => 'header_tagline',
-				'type' => 'text',
-				'instructions' => 'Tagline that appears below the header title.',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-			array (
-				'key' => 'field_58cb79d0d21f6',
-				'label' => 'Half Section One Title',
-				'name' => 'half_section_one_title',
-				'type' => 'text',
-				'required' => 1,
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-			array (
-				'key' => 'field_58cb79fbd21f7',
-				'label' => 'Half Section One Image',
-				'name' => 'half_section_one_image',
-				'type' => 'image',
-				'save_format' => 'object',
-				'preview_size' => 'full',
-				'library' => 'all',
-			),
-			array (
-				'key' => 'field_58cb7a0fd21f8',
-				'label' => 'Half Section One Text',
-				'name' => 'half_section_one_text',
-				'type' => 'wysiwyg',
-				'default_value' => '',
-				'toolbar' => 'full',
-				'media_upload' => 'yes',
-			),
-			array (
-				'key' => 'field_58cb7a25d21fa',
-				'label' => 'Half Section Two Title',
-				'name' => 'half_section_two_title',
-				'type' => 'text',
-				'required' => 1,
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-			array (
-				'key' => 'field_58cb7a4ee9340',
-				'label' => 'Half Section Two Image',
-				'name' => 'half_section_two_image',
-				'type' => 'image',
-				'save_format' => 'object',
-				'preview_size' => 'full',
-				'library' => 'all',
-			),
-			array (
-				'key' => 'field_58cb7a5ae9341',
-				'label' => 'Half Section Two Text',
-				'name' => 'half_section_two_text',
-				'type' => 'wysiwyg',
-				'default_value' => '',
-				'toolbar' => 'full',
-				'media_upload' => 'yes',
-			),
-			array (
-				'key' => 'field_58cb7a23d21f9',
-				'label' => 'Full Section Title',
-				'name' => 'full_section_title',
-				'type' => 'text',
-				'required' => 1,
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-			array (
-				'key' => 'field_58cb7a4ce933f',
-				'label' => 'Full Section Image',
-				'name' => 'full_section_image',
-				'type' => 'image',
-				'save_format' => 'object',
-				'preview_size' => 'full',
-				'library' => 'all',
-			),
-			array (
-				'key' => 'field_58cb7a5be9342',
-				'label' => 'Full Section Content',
-				'name' => 'full_section_text',
-				'type' => 'wysiwyg',
-				'default_value' => '',
-				'toolbar' => 'full',
-				'media_upload' => 'yes',
-			),
-			array (
-				'key' => 'field_58d529d7f6e4f',
-				'label' => 'Footer Script',
-				'name' => 'footer_script',
-				'type' => 'textarea',
-				'default_value' => '',
-				'placeholder' => '',
-				'maxlength' => '',
-				'rows' => '',
-				'formatting' => 'none',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'page',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
+  register_sidebar(array(
+    'name' => 'Contact Form',
+    'before_widget' => '<div>',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
+  ));
 }
 
-
+// Add Custom Field
+function google_fonts() {
+    wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=Lato:300,400,700' );
+}
+add_action( 'wp_enqueue_scripts', 'google_fonts' );
